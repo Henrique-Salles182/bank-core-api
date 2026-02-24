@@ -1,0 +1,20 @@
+
+services:
+  oracle-db:
+    image: gvenzl/oracle-free:latest
+    container_name: bank-oracle-db
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=bank_secret
+      - APP_USER=BANK_APP
+      - APP_USER_PASSWORD=bank_secret
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+
+
+      
