@@ -17,8 +17,9 @@ public class Conta {
     private Long id;
 
     // Relacionamento omitido por enquanto para focar no saldo
-    @Column(name = "usuario_id", nullable = false)
-    private Long usuarioId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
     @Column(name = "numero_conta", unique = true, nullable = false, length = 20)
     private String numeroConta;
@@ -33,8 +34,8 @@ public class Conta {
     private Long version;
 
     // Construtor de inicialização (Factory method é melhor, mas vamos manter simples por agora)
-    public Conta(Long usuarioId, String numeroConta) {
-        this.usuarioId = usuarioId;
+    public Conta(Usuario usuario, String numeroConta) {
+        this.usuario = usuario;
         this.numeroConta = numeroConta;
         this.saldo = BigDecimal.ZERO;
         this.status = "ATIVA";
