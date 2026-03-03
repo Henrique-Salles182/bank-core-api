@@ -21,3 +21,8 @@ spring:
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+
+  api:
+    security:
+      token:
+        secret: ${JWT_SECRET:minha_chave_secreta_super_forte_para_ambiente_local_123456}

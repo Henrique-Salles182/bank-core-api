@@ -31,6 +31,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'org.flywaydb:flyway-database-oracle'
+	implementation 'com.auth0:java-jwt:4.4.0'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -48,3 +49,4 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
